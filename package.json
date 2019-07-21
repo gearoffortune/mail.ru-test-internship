@@ -1,0 +1,19 @@
+{
+  "name": "mail.ru-test-internship",
+  "version": "1.0.0",
+  "description": "masked phone number input component built on web components",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gearoffortune/mail.ru-test-internship.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gearoffortune/mail.ru-test-internship/issues"
+  },
+  "homepage": "https://github.com/gearoffortune/mail.ru-test-internship#readme"
+}

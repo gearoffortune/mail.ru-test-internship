@@ -1,3 +1,4 @@
+import fs from 'fs';
 class MaskedNumber extends HTMLElement{
   constructor() {
     super();
@@ -9,7 +10,7 @@ class MaskedNumber extends HTMLElement{
   getValue() {
     let enteredNums = Array.prototype.filter.call(this.shadow.childNodes, x => x.tagName === 'INPUT').map(x => x.value);
     let res = this.getAttribute('mask');
-    if(enteredNums.some(x => x==='')){
+    if(enteredNums.some(x => x==='')||!enteredNums.every(x => /\d/.test(x))){
       return null;
     }
     while (enteredNums.length > 0) {
@@ -20,6 +21,7 @@ class MaskedNumber extends HTMLElement{
   }
   showError() {
     this.shadow.innerHTML += '<p class="error">Неверный номер, попробуйте еще раз</p>'
+    Array.prototype.filter.call(this.shadow.childNodes, x => x.tagName === 'INPUT').forEach(x => x.className = 'input-error');
   }
 }
 
@@ -38,12 +40,11 @@ function getHTML(mask = ''){
     return '<span class="input-like">X</span>';
   }
   function getInput(){
-    return '<input type="text" size="1" maxlength="1" minlegth="1" pattern="[0-9]">'
+    return '<input type="text" size="1" maxlength="1" minlegth="1" pattern="[0-9]" placeholder="_">'
   }
   function getStyle(){
-    return `<style>
-
-    </style>`;
+    const style = fs.readFileSync(__dirname + '/styles.css', 'utf8');
+    return `<style>${style}</style>`;
   }
 
   let maskArr = mask.split('');
