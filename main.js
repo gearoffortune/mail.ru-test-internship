@@ -51,13 +51,10 @@ function getHTML(mask = ''){
     switch (x) {
       case "X":
         return accum + getXElem();
-        break;
     case "*":
       return accum + getDotElem();
-      break;
     case "I":
       return accum + getInput();
-      break;
     default:
       if(/[0-9]/.test(x)){
         return accum + getNumElem(x);
