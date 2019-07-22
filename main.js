@@ -6,7 +6,10 @@ class MaskedNumber extends HTMLElement{
 
     this.shadow = this.attachShadow({mode: 'open'});
     this.shadow.innerHTML = getHTML(this.getAttribute('mask'));
-    this.inputs = Array.prototype.filter.call(this.shadow.childNodes, x => x.tagName === 'INPUT')
+    this.inputs = Array.prototype.filter.call(this.shadow.childNodes, x => x.tagName === 'INPUT');
+    this.inputs.forEach(x => x.oninput = function() {
+      x.setCustomValidity('');
+    })
   }
   get value() {
     let enteredNums = this.inputs.map(x => x.value);
@@ -22,6 +25,9 @@ class MaskedNumber extends HTMLElement{
   }
   resetForm() {
     this.inputs.forEach(x => x.value = '');
+  }
+  displayError() {
+    this.inputs.forEach(x => x.setCustomValidity('new error'));
   }
 }
 
