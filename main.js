@@ -7,7 +7,7 @@ class MaskedNumber extends HTMLElement{
     this.shadow.innerHTML = getHTML(this.getAttribute('mask'));
 
   }
-  getValue() {
+  get value() {
     let enteredNums = Array.prototype.filter.call(this.shadow.childNodes, x => x.tagName === 'INPUT').map(x => x.value);
     let res = this.getAttribute('mask');
     if(enteredNums.some(x => x==='')||!enteredNums.every(x => /\d/.test(x))){
@@ -18,10 +18,6 @@ class MaskedNumber extends HTMLElement{
       enteredNums.shift();
     }
     return res;
-  }
-  showError() {
-    this.shadow.innerHTML += '<p class="error">Неверный номер, попробуйте еще раз</p>'
-    Array.prototype.filter.call(this.shadow.childNodes, x => x.tagName === 'INPUT').forEach(x => x.className = 'input-error');
   }
 }
 
@@ -46,6 +42,9 @@ function getHTML(mask = ''){
     const style = fs.readFileSync(__dirname + '/styles.css', 'utf8');
     return `<style>${style}</style>`;
   }
+  function getError() {
+    return '<p class="error">Неверный номер, попробуйте еще раз</p>';
+  }
 
   let maskArr = mask.split('');
   let htmlString = maskArr.reduce((accum, x)=>{
@@ -68,7 +67,7 @@ function getHTML(mask = ''){
       }
     }
   }, '')
-  return htmlString+getStyle();
+  return htmlString+getError()+getStyle();
 }
 
 customElements.define('masked-input', MaskedNumber);

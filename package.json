@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/gearoffortune/mail.ru-test-internship/issues"
   },
-  "homepage": "https://github.com/gearoffortune/mail.ru-test-internship#readme"
+  "homepage": "https://github.com/gearoffortune/mail.ru-test-internship#readme",
+  "devDependencies": {
+    "parcel": "^1.12.3"
+  }
 }

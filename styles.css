@@ -2,33 +2,51 @@
   font-family: sans-serif;
 }
 
-input,
 .input-like {
-  width: 1em;
-  height: 32px;
-  line-height: 32px;
-  border: 1px solid #f0f0f0;
-  border-radius: 2px;
   background-color: #f0f0f0;
-  padding: 0;
-  text-align: center;
+  border: 1px solid #f0f0f0;
+  display: inline-block;
 }
 
+input {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+input,
 .input-like {
-  display: inline-block;
+  width: 23px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 2px;
+  padding: 0;
+  text-align: center;
+  margin: 4px 2px;
 }
 
 span,
 input {
-  margin: 4px 2px;
   font-size: 15px;
 }
 
+input:hover {
+  border: 1px solid rgba(0, 0, 0, 0.24);
+}
+
+input:focus {
+  border: 1px solid rgba(0, 0, 0, 0.48);
+}
+
 .error {
+  visibility: hidden;
   color: red;
   font-size: 13px;
 }
 
-.input-error {
-  outline: 1px solid red;
+input:invalid {
+  box-shadow: none;
+  border: 1px solid #f10;
+}
+
+input:invalid ~ p {
+  visibility: visible;
 }
