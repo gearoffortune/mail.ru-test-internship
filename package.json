@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/gearoffortune/mail.ru-test-internship#readme",
   "devDependencies": {
-    "parcel": "^1.12.3"
+    "eslint": "^6.1.0",
+    "parcel": "^1.12.3",
+    "stylelint": "^10.1.0",
+    "stylelint-config-standard": "^18.3.0",
   }
 }
