@@ -2,7 +2,7 @@
 
 
 # Masked Number Component
-
+[Дизайн]: https://raw.githubusercontent.com/gearoffortune/mail.ru-test-internship/master/design.png
 компонент создан на основе web components
 
 ## API
@@ -25,9 +25,9 @@
 при использовании необходимо добавить класс MaskedNumber для декларирования компонента и после этого добавить в DOM элемент <masked-input></masked-input> с указанным атрибутом mask, по которому будет создан элемент
 
 таким образом для маски из примера - "+7(985)0II-**" будет
-
+```html
     <masked-input mask="+7(985)0II-**-**"></masked-input>
-
+```
 ## Поведение компонента при неверном вводе
 
 - при вводе в поля для ввода невозможно ввести больше одного символа
