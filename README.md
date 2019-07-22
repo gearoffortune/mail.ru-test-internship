@@ -2,7 +2,11 @@
 
 
 # Masked Number Component
+<<<<<<< HEAD
 [Дизайн]: https://raw.githubusercontent.com/gearoffortune/mail.ru-test-internship/master/design.png
+=======
+![Дизайн](https://github.com/gearoffortune/mail.ru-test-internship/design.png)
+>>>>>>> 05957cfc46560e4068e97b68fca4d452907b9573
 компонент создан на основе web components
 
 ## API
