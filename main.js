@@ -1,4 +1,5 @@
-import fs from 'fs';
+/*global require: readonly*/
+const style = require('./styles.css');
 class MaskedNumber extends HTMLElement{
   constructor() {
     super();
@@ -39,8 +40,7 @@ function getHTML(mask = ''){
     return '<input type="text" size="1" maxlength="1" minlegth="1" pattern="[0-9]" placeholder="_">'
   }
   function getStyle(){
-    const style = fs.readFileSync(__dirname + '/styles.css', 'utf8');
-    return `<style>${style}</style>`;
+    return `<style>${style.toString()}</style>`;
   }
   function getError() {
     return '<p class="error">Неверный номер, попробуйте еще раз</p>';

@@ -5,10 +5,12 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel build main.js",
-    "develop": "parcel index.html",
+    "build": "webpack-cli --config webpack.config.js --mode production",
+    "develop": "webpack-dev-server --open",
     "stylelint": "stylelint styles.css",
-    "eslint": "eslint main.js"
+    "eslint": "eslint main.js",
+    "storybook": "start-storybook",
+    "visual-test": "backstop test"
   },
   "repository": {
     "type": "git",
@@ -21,9 +23,13 @@
   },
   "homepage": "https://github.com/gearoffortune/mail.ru-test-internship#readme",
   "devDependencies": {
+    "backstopjs": "^4.1.0",
+    "css-loader": "^3.1.0",
     "eslint": "^6.1.0",
-    "parcel": "^1.12.3",
     "stylelint": "^10.1.0",
-    "stylelint-config-standard": "^18.3.0"
+    "stylelint-config-standard": "^18.3.0",
+    "to-string-loader": "^1.1.5",
+    "webpack": "^4.36.1",
+    "webpack-dev-server": "^3.7.2"
   }
 }

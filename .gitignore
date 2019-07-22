@@ -1,3 +1,4 @@
 dist
 .cache
 node_modules
+backstop_data/engine_scripts
