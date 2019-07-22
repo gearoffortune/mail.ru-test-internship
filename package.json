@@ -6,11 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "parcel build main.js",
-<<<<<<< HEAD
-    "develop": "parcel index.html"
-=======
-    "develop": "parcel main.js"
->>>>>>> 910a8638a9599b0a815be63aa84fab9df30612cb
+    "develop": "parcel index.html",
+    "stylelint": "stylelint styles.css",
+    "eslint": "eslint main.js"
   },
   "repository": {
     "type": "git",
