@@ -4,7 +4,9 @@
   "description": "masked phone number input component built on web components",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build main.js",
+    "develop": "parcel index.html"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,6 @@
     "eslint": "^6.1.0",
     "parcel": "^1.12.3",
     "stylelint": "^10.1.0",
-    "stylelint-config-standard": "^18.3.0",
+    "stylelint-config-standard": "^18.3.0"
   }
 }
