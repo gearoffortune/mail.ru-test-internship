@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack-cli --config webpack.config.js --mode production",
     "develop": "webpack-dev-server --open",
-    "stylelint": "stylelint styles.css",
-    "eslint": "eslint main.js",
+    "stylelint": "stylelint ./component/styles.css",
+    "eslint": "eslint ./component/main.js",
     "storybook": "start-storybook",
     "visual-test": "backstop test"
   },
