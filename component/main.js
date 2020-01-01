@@ -30,12 +30,6 @@ class MaskedNumber extends HTMLElement{
     this._inputs.forEach(x => x.setCustomValidity('new error'));
   }
   _getHTML(mask = ''){
-    function getNumElem(num){
-      return `<span class="input-like">${num}</span>`;
-    }
-    function getNonNumElem(str){
-      return `<span class="non-input-sym">${str}</span>`;
-    }
     function getStyle(){
       return `<style>${style.toString()}</style>`;
     }
@@ -45,20 +39,23 @@ class MaskedNumber extends HTMLElement{
 
     let maskArr = mask.split('');
     let htmlString = maskArr.reduce((accum, x)=>{
+
+      function defaultElement(x){
+        if(/[0-9]/.test(x)){
+          return '<span class="input-like">' + x + '</span>';
+        }
+        else {
+          return '<span class="non-input-sym">' + x + '</span>';
+        }
+      }
+
       const elemObj = {
         X: '<span class="input-like">X</span>',
         I: '<input type="text" size="1" maxlength="1" minlegth="1" pattern="[0-9]" placeholder="_">',
-        '*': '<span class="input-like">●</span>'
+        '*': '<span class="input-like">●</span>',
+        default: defaultElement
       };
-      if(elemObj.hasOwnProperty(x)){
-        return accum + elemObj[x];
-      }
-        if(/[0-9]/.test(x)){
-          return accum + getNumElem(x);
-        }
-        else {
-          return accum + getNonNumElem(x);
-        }
+        return x in elemObj ? accum + elemObj[x] : accum + elemObj['default'](x);
       
     }, '')
     return htmlString+getError()+getStyle();
