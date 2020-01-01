@@ -36,15 +36,6 @@ class MaskedNumber extends HTMLElement{
     function getNonNumElem(str){
       return `<span class="non-input-sym">${str}</span>`;
     }
-    function getDotElem(){
-      return '<span class="input-like">●</span>';
-    }
-    function getXElem(){
-      return '<span class="input-like">X</span>';
-    }
-    function getInput(){
-      return '<input type="text" size="1" maxlength="1" minlegth="1" pattern="[0-9]" placeholder="_">'
-    }
     function getStyle(){
       return `<style>${style.toString()}</style>`;
     }
@@ -54,21 +45,21 @@ class MaskedNumber extends HTMLElement{
 
     let maskArr = mask.split('');
     let htmlString = maskArr.reduce((accum, x)=>{
-      switch (x) {
-        case "X":
-          return accum + getXElem();
-      case "*":
-        return accum + getDotElem();
-      case "I":
-        return accum + getInput();
-      default:
+      const elemObj = {
+        X: '<span class="input-like">X</span>',
+        I: '<input type="text" size="1" maxlength="1" minlegth="1" pattern="[0-9]" placeholder="_">',
+        '*': '<span class="input-like">●</span>'
+      };
+      if(elemObj.hasOwnProperty(x)){
+        return accum + elemObj[x];
+      }
         if(/[0-9]/.test(x)){
           return accum + getNumElem(x);
         }
         else {
           return accum + getNonNumElem(x);
         }
-      }
+      
     }, '')
     return htmlString+getError()+getStyle();
   }
